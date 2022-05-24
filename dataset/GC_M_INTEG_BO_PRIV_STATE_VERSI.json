@@ -1,0 +1,17 @@
+{
+	"name": "GC_M_INTEG_BO_PRIV_STATE_VERSI",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "GSIT_PROD",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "OracleTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "GSITAPPS_ADM",
+			"table": "GC_M_INTEG_BO_PRIV_STATE_VERSI"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

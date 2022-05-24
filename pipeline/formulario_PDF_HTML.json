@@ -1,0 +1,93 @@
+{
+	"name": "formulario_PDF_HTML",
+	"properties": {
+		"activities": [
+			{
+				"name": "formulario_PDF_HTML",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "OracleSource",
+						"oracleReaderQuery": "select inter.id, sf.classe_formulari from gsit_ti_req_sf sf, gc_interaction inter, gsit_ti_control_modalitat cm, gsit_ti_modalitat moda\nwhere\nmoda.tipus_interaccio=inter.inter_type_id \nand moda.modalitat_id=cm.modalitat_id \nand concat(cm.versio_negoci,cm.versio_menor)=inter.inter_type_version\nand moda.modalitat_id=sf.modalitat_id and sf.idioma='ca_ES'\nand inter.creation_date>= '01/01/2017'  and inter.pub_state_id<>-7 and sf.tipus=0;",
+						"partitionOption": "None",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "ID",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "ID",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CLASSE_FORMULARI",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CLASSE_FORMULARI",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "gsit_ti_req_sf_CONSO",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "principal_del_tramite_DATALAKE",
+						"type": "DatasetReference",
+						"parameters": {
+							"filename": "formulario_PDF_HTML.csv"
+						}
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "PRODUCCIO"
+		},
+		"annotations": [],
+		"lastPublishTime": "2022-03-18T10:07:03Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

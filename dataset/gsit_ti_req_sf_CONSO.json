@@ -1,0 +1,17 @@
+{
+	"name": "gsit_ti_req_sf_CONSO",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "GSIT_PROD",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "OracleTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "GSITAPPS_ADM",
+			"table": "GSIT_TI_REQ_SF"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,17 @@
+{
+	"name": "GC_REL_TYPE_VERSION_CHANNEL",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "GSIT_PROD",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "OracleTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "GSITAPPS_ADM",
+			"table": "GC_REL_TYPE_VERSION_CHANNEL"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

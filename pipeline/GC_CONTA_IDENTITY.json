@@ -1,0 +1,104 @@
+{
+	"name": "GC_CONTA_IDENTITY",
+	"properties": {
+		"activities": [
+			{
+				"name": "GC_CONTA_IDENTITY",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "OracleSource",
+						"oracleReaderQuery": "select ID,AUTH_DOC1_TYPE_ID , AUTH_DOC2_TYPE_ID  from GC_CONTA_IDENTITY",
+						"partitionOption": "None",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "ID",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "ID",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AUTH_DOC1_TYPE_ID",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "AUTH_DOC1_TYPE_ID",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AUTH_DOC2_TYPE_ID",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "AUTH_DOC2_TYPE_ID",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "GC_CONTA_IDENTITY",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "principal_del_tramite_DATALAKE",
+						"type": "DatasetReference",
+						"parameters": {
+							"filename": "GC_CONTA_IDENTITY.csv"
+						}
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "PRODUCCIO"
+		},
+		"annotations": [],
+		"lastPublishTime": "2022-04-12T15:50:19Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

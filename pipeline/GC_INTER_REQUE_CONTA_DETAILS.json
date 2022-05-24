@@ -1,0 +1,66 @@
+{
+	"name": "GC_INTER_REQUE_CONTA_DETAILS",
+	"properties": {
+		"activities": [
+			{
+				"name": "GC_INTER_REQUE_CONTA_DETAILS",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "OracleSource",
+						"oracleReaderQuery": "select ID, INTERACTION_ID,  INTERACTION_REQUEST_ID,REQUEST_ROLE_ID,CONTACT_IDENTITY_ID  from GC_INTER_REQUE_CONTA_DETAILS",
+						"partitionOption": "None",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "GC_INTER_REQUE_CONTA_DETAILS",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "GC_INTER_REQUE_CONTA_DETAILS_Datalake",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "PRODUCCIO"
+		},
+		"annotations": [],
+		"lastPublishTime": "2022-04-05T10:03:07Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

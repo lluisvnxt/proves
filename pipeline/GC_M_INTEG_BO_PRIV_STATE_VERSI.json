@@ -1,0 +1,104 @@
+{
+	"name": "GC_M_INTEG_BO_PRIV_STATE_VERSI",
+	"properties": {
+		"activities": [
+			{
+				"name": "GC_M_INTEG_BO_PRIV_STATE_VERSI",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "OracleSource",
+						"oracleReaderQuery": "select INTEG_BO_PRIV_STATE_ID,VERSION,TEXT_DESC  from GSITAPPS_ADM.GC_M_INTEG_BO_PRIV_STATE_VERSI",
+						"partitionOption": "None",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "INTEG_BO_PRIV_STATE_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "INTEG_BO_PRIV_STATE_ID",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "VERSION",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "VERSION",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TEXT_DESC",
+									"type": "String"
+								},
+								"sink": {
+									"name": "TEXT_DESC",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "GC_M_INTEG_BO_PRIV_STATE_VERSI",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "principal_del_tramite_DATALAKE",
+						"type": "DatasetReference",
+						"parameters": {
+							"filename": "GC_M_INTEG_BO_PRIV_STATE_VERSI.csv"
+						}
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "PRODUCCIO"
+		},
+		"annotations": [],
+		"lastPublishTime": "2022-04-13T08:59:13Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

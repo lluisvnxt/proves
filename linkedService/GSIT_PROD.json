@@ -1,0 +1,16 @@
+{
+	"name": "GSIT_PROD",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "Oracle",
+		"typeProperties": {
+			"connectionString": "host=10.52.45.22;port=1522;servicename=GSIDOX00;user id=GSITAPPS_DBORONAT",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI5YjlhNDFhYy1jZjQzLTQ2YzQtODRjZC00NzE4NWM4ODQyMDQiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "SFTPEducacio",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

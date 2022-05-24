@@ -1,0 +1,17 @@
+{
+	"name": "gsit_ti_config_instancia_form_CONSO",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "GSIT_PROD",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "OracleTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "GSITAPPS_ADM",
+			"table": "GSIT_TI_CONFIG_INSTANCIA_FORM"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,126 @@
+{
+	"name": "gsit_ti_modalitat2",
+	"properties": {
+		"activities": [
+			{
+				"name": "gsit_ti_modalitat",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "OracleSource",
+						"oracleReaderQuery": "select * from gsit_ti_modalitat",
+						"partitionOption": "None",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "MODALITAT_ID",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "MODALITAT_ID",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TRAMIT_ID",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "TRAMIT_ID",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CODI",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CODI",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DESCRIPCIO",
+									"type": "String"
+								},
+								"sink": {
+									"name": "DESCRIPCIO",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TIPUS_INTERACCIO",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "TIPUS_INTERACCIO",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "gsit_ti_modalitat",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "principal_del_tramite_DATALAKE",
+						"type": "DatasetReference",
+						"parameters": {
+							"filename": "gsit_ti_modalitat_2.csv"
+						}
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "PRODUCCIO"
+		},
+		"annotations": [],
+		"lastPublishTime": "2022-04-05T09:52:16Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

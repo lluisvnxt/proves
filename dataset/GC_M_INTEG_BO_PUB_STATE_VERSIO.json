@@ -1,0 +1,17 @@
+{
+	"name": "GC_M_INTEG_BO_PUB_STATE_VERSIO",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "GSIT_PROD",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "OracleTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "GSITAPPS_ADM",
+			"table": "GC_M_INTEG_BO_PUB_STATE_VERSIO"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

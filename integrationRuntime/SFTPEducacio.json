@@ -1,0 +1,12 @@
+{
+	"name": "SFTPEducacio",
+	"properties": {
+		"type": "SelfHosted",
+		"typeProperties": {
+			"linkedInfo": {
+				"resourceId": "/subscriptions/55a6b949-1b34-42a2-8eaa-fc274a0e3b5d/resourcegroups/GencatCensPREDEV/providers/Microsoft.DataFactory/factories/DFGenCatPreDev/integrationruntimes/OnPremises",
+				"authorizationType": "Rbac"
+			}
+		}
+	}
+}

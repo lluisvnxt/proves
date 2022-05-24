@@ -1,0 +1,17 @@
+{
+	"name": "GC_INTER_REQUE_CONTA_DETAILS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "GSIT_PROD",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "OracleTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "GSITAPPS_ADM",
+			"table": "GC_INTER_REQUE_CONTA_DETAILS"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

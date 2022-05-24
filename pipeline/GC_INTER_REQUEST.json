@@ -1,0 +1,115 @@
+{
+	"name": "GC_INTER_REQUEST",
+	"properties": {
+		"activities": [
+			{
+				"name": "GC_INTER_REQUEST",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "OracleSource",
+						"oracleReaderQuery": "select INTERACTION_ID, REQUEST_ID, CHANNEL_ID, INTER_REQUE_TYPE_ID  from GC_INTER_REQUEST ",
+						"partitionOption": "None",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "INTERACTION_ID",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "INTERACTION_ID",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "REQUEST_ID",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "REQUEST_ID",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CHANNEL_ID",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "CHANNEL_ID",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "INTER_REQUE_TYPE_ID",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "INTER_REQUE_TYPE_ID",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "GC_INTER_REQUEST",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "principal_del_tramite_DATALAKE",
+						"type": "DatasetReference",
+						"parameters": {
+							"filename": "GC_INTER_REQUEST.csv"
+						}
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "PRODUCCIO"
+		},
+		"annotations": [],
+		"lastPublishTime": "2022-04-20T14:31:56Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

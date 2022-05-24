@@ -1,0 +1,24 @@
+{
+	"name": "GC_INTER_REQUE_CONTA_DETAILS_Datalake",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DATALAKE_PROD",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "GC_INTER_REQUE_CONTA_DETAILS.csv",
+				"folderPath": "DataScience/PRODUCCIO",
+				"container": "topics"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,401 @@
+{
+	"name": "json_de_las_tramitaciones_html",
+	"properties": {
+		"activities": [
+			{
+				"name": "json de las tramitaciones html",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "OracleSource",
+						"oracleReaderQuery": "select * from gsit_ti_config_instancia_form where case_public_code is not null and data_inici>= to_date('01/01/2017','dd/MM/yyyy');\n\n",
+						"partitionOption": "None",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "UUID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "UUID",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "MODALITAT_ID",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "MODALITAT_ID",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "UNITAT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "UNITAT",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "IDIOMA",
+									"type": "String"
+								},
+								"sink": {
+									"name": "IDIOMA",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "NOM_FORM",
+									"type": "String"
+								},
+								"sink": {
+									"name": "NOM_FORM",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TE_PREOMPLERT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "TE_PREOMPLERT",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ACCESS_TOKEN",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ACCESS_TOKEN",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TE_SIGNATURA",
+									"type": "String"
+								},
+								"sink": {
+									"name": "TE_SIGNATURA",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TOKEN_SIGNATURA",
+									"type": "String"
+								},
+								"sink": {
+									"name": "TOKEN_SIGNATURA",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TE_ANTIVIRUS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "TE_ANTIVIRUS",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CANAL",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "CANAL",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CASE_PUBLIC_CODE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CASE_PUBLIC_CODE",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "JSON",
+									"type": "String"
+								},
+								"sink": {
+									"name": "JSON",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DOR_INFO",
+									"type": "String"
+								},
+								"sink": {
+									"name": "DOR_INFO",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PARTITION_NUMBER",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "PARTITION_NUMBER",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DATA_INICI",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "DATA_INICI",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "XML_ACUSAMENT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "XML_ACUSAMENT",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "XML_EVIDENCIA_SIGNATURA",
+									"type": "String"
+								},
+								"sink": {
+									"name": "XML_EVIDENCIA_SIGNATURA",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "IDENTIFICADOR",
+									"type": "String"
+								},
+								"sink": {
+									"name": "IDENTIFICADOR",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CONTACT_USER_ID",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "CONTACT_USER_ID",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "MD5XML",
+									"type": "String"
+								},
+								"sink": {
+									"name": "MD5XML",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TRAMIT_ID",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "TRAMIT_ID",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "UUID_ESBORRANY",
+									"type": "String"
+								},
+								"sink": {
+									"name": "UUID_ESBORRANY",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PRESENTADOR",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PRESENTADOR",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CASE_PUBLIC_CODE_R",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CASE_PUBLIC_CODE_R",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ID_REF_ESPAIDOCS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ID_REF_ESPAIDOCS",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ID_EXPED_RELAC_CONSULTA",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "ID_EXPED_RELAC_CONSULTA",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PROACTIUS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PROACTIUS",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ID_REGISTRE_CE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ID_REGISTRE_CE",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ID_ESTABLIMENT_CE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ID_ESTABLIMENT_CE",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "gsit_ti_config_instancia_form_CONSO",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "principal_del_tramite_DATALAKE",
+						"type": "DatasetReference",
+						"parameters": {
+							"filename": "json_de_las_tramitaciones_html.csv"
+						}
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "PRODUCCIO"
+		},
+		"annotations": [],
+		"lastPublishTime": "2022-03-18T10:27:23Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

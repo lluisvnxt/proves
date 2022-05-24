@@ -1,0 +1,17 @@
+{
+	"name": "gsit_ti_modalitat",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "GSIT_PROD",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "OracleTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "GSITAPPS_ADM",
+			"table": "GSIT_TI_MODALITAT"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

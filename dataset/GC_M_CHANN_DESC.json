@@ -1,0 +1,17 @@
+{
+	"name": "GC_M_CHANN_DESC",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "GSIT_PROD",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "OracleTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "GSITAPPS_ADM",
+			"table": "GC_M_CHANN_DESC"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

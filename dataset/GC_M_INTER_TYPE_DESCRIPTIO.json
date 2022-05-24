@@ -1,0 +1,17 @@
+{
+	"name": "GC_M_INTER_TYPE_DESCRIPTIO",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "GSIT_PROD",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "OracleTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "GSITAPPS_ADM",
+			"table": "GC_M_INTER_TYPE_DESCRIPTIO"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,126 @@
+{
+	"name": "gsit_ti_act_gf",
+	"properties": {
+		"activities": [
+			{
+				"name": "gsit_ti_act_gf",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "OracleSource",
+						"oracleReaderQuery": "select  CODI_MODALITAT, CODI_TRAMIT, MODALITAT_ID, NUM_SOLICITUD, CANAL_ID from gsit_ti_act_gf where accio='Tramitar' and d_inici<=to_date('03/07/2022 00:00:00','dd/MM/yyyy HH24:MI:SS')",
+						"partitionOption": "None",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "CODI_MODALITAT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CODI_MODALITAT",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CODI_TRAMIT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CODI_TRAMIT",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "MODALITAT_ID",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "MODALITAT_ID",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "NUM_SOLICITUD",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "NUM_SOLICITUD",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CANAL_ID",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "CANAL_ID",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "gsit_ti_act_gf",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "principal_del_tramite_DATALAKE",
+						"type": "DatasetReference",
+						"parameters": {
+							"filename": "gsit_ti_act_gf.csv"
+						}
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "PRODUCCIO"
+		},
+		"annotations": [],
+		"lastPublishTime": "2022-04-28T09:58:49Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

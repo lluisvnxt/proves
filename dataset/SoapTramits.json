@@ -1,0 +1,17 @@
+{
+	"name": "SoapTramits",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "WebGEsncatTramits",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

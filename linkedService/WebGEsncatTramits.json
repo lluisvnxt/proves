@@ -1,0 +1,13 @@
+{
+	"name": "WebGEsncatTramits",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "HttpServer",
+		"typeProperties": {
+			"url": "https://web.gencat.cat/web/resources/tramits.xml",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}

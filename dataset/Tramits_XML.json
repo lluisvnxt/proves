@@ -1,0 +1,17 @@
+{
+	"name": "Tramits_XML",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "WebGEsncatTramits",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Xml",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

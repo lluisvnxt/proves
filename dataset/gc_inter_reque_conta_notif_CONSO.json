@@ -1,0 +1,17 @@
+{
+	"name": "gc_inter_reque_conta_notif_CONSO",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "GSIT_PROD",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "OracleTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "GSITAPPS_ADM",
+			"table": "GC_INTER_REQUE_CONTA_NOTIF"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

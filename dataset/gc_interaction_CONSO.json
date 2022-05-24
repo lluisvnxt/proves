@@ -1,0 +1,17 @@
+{
+	"name": "gc_interaction_CONSO",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "GSIT_PROD",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "OracleTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "GSITAPPS_ADM",
+			"table": "GC_INTERACTION"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

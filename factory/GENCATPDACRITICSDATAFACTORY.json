@@ -1,0 +1,9 @@
+{
+	"name": "GENCATPDACRITICSDATAFACTORY",
+	"location": "westeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "eea90394-696f-4b8a-959a-c38c7e263b3c",
+		"tenantId": "3b9427dc-d30e-43bc-8c06-ff7253676fec"
+	}
+}

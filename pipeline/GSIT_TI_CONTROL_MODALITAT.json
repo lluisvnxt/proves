@@ -1,0 +1,441 @@
+{
+	"name": "GSIT_TI_CONTROL_MODALITAT",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy GSIT_TI_CONTROL_MODALITAT",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "OracleSource",
+						"oracleReaderQuery": "select * from GSIT_TI_CONTROL_MODALITAT",
+						"partitionOption": "None",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "MODALITAT_ID",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "MODALITAT_ID",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "ESTAT",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "ESTAT",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "MISSATGE_ATURADA_ID",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "MISSATGE_ATURADA_ID",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "INICIVIGENCIA",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "INICIVIGENCIA",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "FIVIGENCIA",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "FIVIGENCIA",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "ID_SERVEI_CAT365",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ID_SERVEI_CAT365",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CODI_TRAMIT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CODI_TRAMIT",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CODI_MODALITAT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CODI_MODALITAT",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "VERSIO_NEGOCI",
+									"type": "String"
+								},
+								"sink": {
+									"name": "VERSIO_NEGOCI",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "VERSIO_MENOR",
+									"type": "String"
+								},
+								"sink": {
+									"name": "VERSIO_MENOR",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "USUARI",
+									"type": "String"
+								},
+								"sink": {
+									"name": "USUARI",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DATA_MODIFICACIO",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "DATA_MODIFICACIO",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "VERSIO_BLOQUEIG",
+									"type": "String"
+								},
+								"sink": {
+									"name": "VERSIO_BLOQUEIG",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PLA",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PLA",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "IS_ANTIVIRUS",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "IS_ANTIVIRUS",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "MIDA_MAXIMA",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "MIDA_MAXIMA",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "LINK_ACCIONS",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "LINK_ACCIONS",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "MODE_RENDERITZACIO",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "MODE_RENDERITZACIO",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "PERMETRE_ORGANISME",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "PERMETRE_ORGANISME",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "MISSATGE_ACUSAMENT_ID",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "MISSATGE_ACUSAMENT_ID",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "IS_ACUSAMENT",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "IS_ACUSAMENT",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "MODE_FINALITZACIO",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "MODE_FINALITZACIO",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "MISSATGE_FINALITZACIO_ID",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "MISSATGE_FINALITZACIO_ID",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "IS_AVIS_T_EXHAURIT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "IS_AVIS_T_EXHAURIT",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DIES_AVIS_T_EXHAURIT",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "DIES_AVIS_T_EXHAURIT",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "VISUALITZAR_TERMINI_PAGAMENT",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "VISUALITZAR_TERMINI_PAGAMENT",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "ESTACIONALITAT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ESTACIONALITAT",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "VOLUM_TRAMITACIONS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "VOLUM_TRAMITACIONS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OBSERVACIONS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OBSERVACIONS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "GESTIO_TRAMIT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "GESTIO_TRAMIT",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "MISSATGE_REQ_DOCUM_ID",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "MISSATGE_REQ_DOCUM_ID",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "IS_REQUERIMENTSDOC",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "IS_REQUERIMENTSDOC",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "IS_REQUERIMENTSPAG",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "IS_REQUERIMENTSPAG",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "MISSATGE_REQ_PAGAM_ID",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "MISSATGE_REQ_PAGAM_ID",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "ENVIO_ADMINISTRACIO_LOCAL",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "ENVIO_ADMINISTRACIO_LOCAL",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "CARTA_PAGAMENT_AR",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "CARTA_PAGAMENT_AR",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "BO_REQUER_CARPETA",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "BO_REQUER_CARPETA",
+									"type": "Decimal"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "GSIT_TI_CONTROL_MODALITAT",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "principal_del_tramite_DATALAKE",
+						"type": "DatasetReference",
+						"parameters": {
+							"filename": "GSIT_TI_CONTROL_MODALITAT.csv"
+						}
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "PRODUCCIO"
+		},
+		"annotations": [],
+		"lastPublishTime": "2022-03-29T09:22:13Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

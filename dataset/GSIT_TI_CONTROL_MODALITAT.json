@@ -1,0 +1,17 @@
+{
+	"name": "GSIT_TI_CONTROL_MODALITAT",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "GSIT_PROD",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "OracleTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "GSITAPPS_ADM",
+			"table": "GSIT_TI_CONTROL_MODALITAT"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
